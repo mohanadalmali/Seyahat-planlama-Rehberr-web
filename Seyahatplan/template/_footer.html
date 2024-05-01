@@ -3,25 +3,27 @@
 <!-- footer section start -->
 <div class="footer_section layout_padding">
   <div class="container">
+  {% for indxss in index_pages %} 
    <!-- <div class="input_btn_main">
      <input type="text" class="mail_text" placeholder="Enter your email" name="Enter your email">
      <div class="subscribe_bt"><a href="#">Subscribe</a></div>
    </div> -->
    <div class="location_main">
      <div class="call_text"><img src="{% static "images/call-icon.png" %}"></div>
-     <div class="call_text"><a href="#">Call +01 1234567890</a></div>
+     <div class="call_text"><a href="#">{{indexss.footer_phone_number}}</a></div>
      <div class="call_text"><img src="{% static "images/mail-icon.png" %}"></div>
-     <div class="call_text"><a href="mailto:mohanadalmalii@gmail.com">mohanadalmalii@gmail.com</a></div>
+     <div class="call_text"><a href="mailto:mohanadalmalii@gmail.com">{{indexss.footer_email}}</a></div>
    </div>
    <div class="social_icon">
     <ul class="social-icons">
-      <li><a href="https://www.facebook.com" target="_blank"><img src="{% static "images/fb-icon.png" %}" alt="Facebook"></a></li>
-      <li><a href="https://www.twitter.com" target="_blank"><img src="{% static "images/twitter-icon.png" %}" alt="Twitter"></a></li>
-      <li><a href="https://www.linkedin.com" target="_blank"><img src="{% static "images/linkedin-icon.png" %}" alt="LinkedIn"></a></li>
-      <li><a href="https://www.instagram.com" target="_blank"><img src="{% static "images/instagram-icon.png" %}" alt="Instagram"></a></li>
+      <li><a href="{{indxss.footer_facebook_link}}" target="_blank"><img src="{% static "images/fb-icon.png" %}" alt="Facebook"></a></li>
+      <li><a href="{{indxss.footer_X_link}}" target="_blank"><img src="{% static "images/twitter-icon.png" %}" alt="Twitter"></a></li>
+      <li><a href="{{indxss.footer_linkled_link}}" target="_blank"><img src="{% static "images/linkedin-icon.png" %}" alt="LinkedIn"></a></li>
+      <li><a href="{{indxss.footer_instagram_link}}" target="_blank"><img src="{% static "images/instagram-icon.png" %}" alt="Instagram"></a></li>
     </ul>
     
    </div>
+  {% endfor %}
   </div>
 </div>
 <!-- footer section end -->

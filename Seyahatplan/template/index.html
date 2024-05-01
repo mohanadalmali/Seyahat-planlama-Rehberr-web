@@ -13,7 +13,7 @@
        </div>
      </div>
      <div class="row justify-content-center">
-    {% for indxss in indexpage %} 
+    {% for indxss in index_pages %} 
        <div class="col-lg-4 mb-4" data-city="istanbul">
          <div class="card border-0 text-center">
            <img src="{{indxss.index_image.url}}" class="card-img-top" alt="Resim">
@@ -33,7 +33,7 @@
 <div class="about_section layout_padding">
   <div class="container-fluid">
    <div class="row">
-    {% for indxss in indexpage %}
+    {% for indxss in index_pages %}
      <div class="col-md-6">
       <div class="about_taital_main">
         <h1 class="about_taital">{{indxss.about_title}}</h1>
@@ -64,7 +64,7 @@
 <!-- choose section start -->
 <div class="about_section layout_padding">
 </div>
-{% for indxss in indexpage %} 
+{% for indxss in index_pages %} 
 <div class="choose_section layout_padding">
   <div class="container">
    <h1 class="choose_taital">{{indxss.why_choose_us_title}}</h1>
