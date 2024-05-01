@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}anasayfa{% endblock title %}
+{% block continer %}
+ <!-- header section end -->
+ <!-- services section start -->
+ <section class="untree_co-section py-5 bg-light">
+   <div class="container">
+     <div class="row justify-content-center mb-5">
+       <div class="col-lg-12 text-center">
+         <h2 class="section-title mb-3">Özel Teklifler ve İndirimler</h2>
+         <p class="section-subtitle">Uzak bir ülkede, kelime dağlarının ardında, Vokalia ve Consonantia ülkelerinden uzakta, kör metinler yaşıyor. Ayrılmış olarak Bookmarksgrove'da yaşarlar, Semantikler kıyısında, geniş bir dil okyanusunda.</p>
+       </div>
+     </div>
+     <div class="row justify-content-center">
+    {% for indxss in indexpage %} 
+       <div class="col-lg-4 mb-4" data-city="istanbul">
+         <div class="card border-0 text-center">
+           <img src="{{indxss.index_image.url}}" class="card-img-top" alt="Resim">
+           <div class="card-body">
+             <h3 class="card-title">{{indxss.index_title}}</h3>
+             <p class="card-text">{{indxss.index_description}}</p>
+             <a href="{% url "services" %}" class="btn btn-primary"><i class="fas fa-map-marker-alt"></i>Daha fazlasi için</a>
+           </div>
+         </div>
+       </div>
+       {% endfor %} 
+     </div>
+   </div>
+ </section>
+<!-- services section end -->
+<!-- about section start -->
+<div class="about_section layout_padding">
+  <div class="container-fluid">
+   <div class="row">
+    {% for indxss in indexpage %}
+     <div class="col-md-6">
+      <div class="about_taital_main">
+        <h1 class="about_taital">{{indxss.about_title}}</h1>
+        <p class="about_text">{{indxss.about_description}} </p>
+        <div class="readmore_bt"><a href="{% url 'about' %}">Read More</a></div>
+      </div>
+     </div>
+     <div class="col-md-6 padding_right_0">
+      <div><img src={{indxss.about_image.url}} class="about_img"></div>
+     </div>
+     {% endfor %}
+   </div>
+  </div>
+</div>
+<!-- about section end -->
+<!-- blog section start -->
+{% comment %} <div class="blog_section layout_padding">
+  <div class="container">
+   <h1 class="blog_taital">See Our Video</h1>
+   <p class="blog_text">many variations of passages of Lorem Ipsum available, but the majority have suffered
+     alteration in some form, by injected humour, or randomised words which</p>
+   <div class="play_icon_main">
+     <div class="play_icon"><a href="#"><img src="{% static "images/play-icon.png" %}"></a></div>
+   </div>
+  </div>
+</div> {% endcomment %}
+<!-- blog section end -->
+<!-- choose section start -->
+<div class="about_section layout_padding">
+</div>
+{% for indxss in indexpage %} 
+<div class="choose_section layout_padding">
+  <div class="container">
+   <h1 class="choose_taital">{{indxss.why_choose_us_title}}</h1>
+   <p class="choose_text">{{indxss.why_choose_us_description}}</p>
+   <div class="read_bt_1"><a href="#">Read More</a></div>
+  </div>
+</div>
+{% endfor %}
+
+<!-- choose section end -->
+{% endblock continer %}
