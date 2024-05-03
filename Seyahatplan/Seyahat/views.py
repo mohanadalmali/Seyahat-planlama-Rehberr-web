@@ -1,16 +1,12 @@
-from django.shortcuts import  render
+from django.shortcuts import   render
 
-# from Sayahat.models import Service, ServiceDetail
+from . models import  services
+def service(request):
+  Service_page = services.objects.all()
+  context={'Service_page':Service_page}
+  return render(request,'services.html',context)
 
-# def indexservic(request):
-  
-#   context=dict()
-#   context["indexpage"] = IndexPage.objects.all()
-def services(request):
-#   context=dict()
-#   context["Servicepage"] = Service.objects.all()
-  return render(request,'services.html')
-def servicdatai(request):
-#   context=dict()
-#   context["ServiceDetailpage"] = ServiceDetail.objects.all()
-  return render(request,'servicesdetia.html')
+def servicdatai(request,id):
+  return render(request ,'servicesdetia.html',{'id':id})
+
+

@@ -17,18 +17,19 @@
      </div>
    </div>
    <div class="row justify-content-center">
-  {% for serv in Servicepage %}
+{% for serv in Service_page %}
      <div class="col-lg-4 mb-4" data-city="istanbul">
        <div class="card border-0 text-center">
          <img src="{{serv.image.url}}" class="card-img-top" alt="Resim">
          <div class="card-body">
-           <h3 class="card-title"><a href="{% url "servicdatai" %}">{{serv.title}}</a></h3>
-           <p class="card-text">{{serv.description}}</p>
-           <a href="{% url "servicdatai" %}" class="btn btn-primary"><i class="fas fa-map-marker-alt"></i> Rota Detayı</a>
+           <h3 class="card-title"><a href="{% url 'servicdatai' serv.id %}">{{serv.title}}</a></h3> 
+           <!-- serv.id -->
+           <p class="card-text">{{serv.description}}</p> 
+           <a href="{% url 'servicdatai' serv.id %}"class="btn btn-primary"><i class="fas fa-map-marker-alt"></i> Rota Detayı</a>
          </div>
        </div>
      </div>
-  {% endfor %}
+{% endfor %}
    </div>
  </div>
 </section>

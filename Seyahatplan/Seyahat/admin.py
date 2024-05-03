@@ -1,7 +1,8 @@
 
 # Register your models here.
 from django.contrib import admin
-from .models import Service, ServiceDetail
+from .models import catagori,services
+admin.site.register(catagori)
+admin.site.register(services)
 
-admin.site.register(Service)
-admin.site.register(ServiceDetail)
+

@@ -13,13 +13,13 @@
        </div>
      </div>
      <div class="row justify-content-center">
-    {% for indxss in index_pages %} 
+    {% for indxss in homepage_services %} 
        <div class="col-lg-4 mb-4" data-city="istanbul">
          <div class="card border-0 text-center">
-           <img src="{{indxss.index_image.url}}" class="card-img-top" alt="Resim">
+           <img src="{{indxss.image.url}}" class="card-img-top" alt="Resim">
            <div class="card-body">
-             <h3 class="card-title">{{indxss.index_title}}</h3>
-             <p class="card-text">{{indxss.index_description}}</p>
+             <h3 class="card-title">{{indxss.title}}</h3>
+             <p class="card-text">{{indxss.description}}</p>
              <a href="{% url "services" %}" class="btn btn-primary"><i class="fas fa-map-marker-alt"></i>Daha fazlasi için</a>
            </div>
          </div>

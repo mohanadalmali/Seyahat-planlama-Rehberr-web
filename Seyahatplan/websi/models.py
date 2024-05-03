@@ -1,9 +1,9 @@
 from django.db import models
 class IndexPage(models.Model):
   # Ana sayfa için içerik
-  index_title = models.CharField(max_length=200)
-  index_image = models.ImageField(upload_to="media")
-  index_description = models.TextField()
+  # index_title = models.CharField(max_length=200)
+  # index_image = models.ImageField(upload_to="media")
+  # index_description = models.TextField()
   # Hakkımızda için içerik
   about_title = models.CharField(max_length=200)
   about_image = models.ImageField(upload_to="media")
@@ -27,4 +27,13 @@ class abouts(models.Model):
   about_descriptionb = models.TextField()
   def __str__(self):
     return "blok sayfasi"
-  
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=15)
+    email = models.EmailField()
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
