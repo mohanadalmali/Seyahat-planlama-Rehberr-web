@@ -1,57 +1,63 @@
 {% extends "base.html" %} 
 {% load static %}
-{% block title %}"servic datei"{% endblock title %}
+{% block title %}"Service Detail"{% endblock title %}
 {% block continer %}
 <!-- detai section start -->
 <div class="about_section layout_padding">
   <div class="container-fluid">
     <div class="row">
-      
+    {% for serv in services_in_category %}
       <div class="col-md-6">
         <div class="about_taital_main">
-          <h1 class="about_taital">{{Service_page.title}}</h1>
-          <p class="about_text">{{Service_page.description}}</p>
+          <h1 class="about_taital">{{serv.title}}</h1>
+          <p class="about_text">{{serv.description}}</p>
           <div class="button_container">
-            <a href="{{detil.link1_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>{{detil.link1_title}}</a>
-           <a href="{{detil.link2_url}}" target="_blank" class="btn btn-secondary"><i class="fas fa-info-circle"></i> {{detil.link2_title}}</a>
+            <a href="{{serv.link_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>{{serv.link_title}}</a>
+           <a href="{{serv.link_url2}}" target="_blank" class="btn btn-secondary"><i class="fas fa-info-circle"></i> {{serv.link_title2 }}</a>
           </div>
         </div>
       </div>
       <div class="col-md-6 padding_right_0">
-        <div><img src="{{services.image.url}}" class="about_img"></div>
+        <div><img src="{{serv.image.url}}" class="about_img"></div>
       </div>
+    {% endfor %}
+      
     </div>
   </div>
 </div>
 <div class="about_section layout_padding">
+  {% for serv in services_in_category %}
   <div class="container-fluid">
-    <h1 class="about_taital text-center">{{detil.main_title1}}</h1>
+    <h1 class="about_taital text-center">{{serv.main_title1}}</h1>
     <div class="row justify-content-center">
       <div class="col-md-4">
         <div class="about_item text-center">
-          <img src="{{detil.image1.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
-          <h2 class="about_subtaital">{{detil.title1}} 1</h2>
-          <p class="about_text">{{detil.description1}}
+          <img src="{{serv.image1.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
+          <h2 class="about_subtaital">{{serv.title1}} 1</h2>
+          <p class="about_text">{{serv.description1}}
           </p>
         </div>    
       </div>
       </div>
     </div>
+    {% endfor %}
   </div>
 </div>
 <div class="about_section layout_padding">
+  {% for serv in services_in_category %}
   <div class="container-fluid">
-    <h1 class="about_taital text-center">{{detil.main_title2}}</h1>
+    <h1 class="about_taital text-center">{{serv.main_title2}}</h1>
     <div class="row justify-content-center">
       <div class="col-md-4">
         <div class="about_item text-center">
-          <img src="{{detil.image2.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
-          <h2 class="about_subtaital">{{detil.title2}}</h2>
-          <p class="about_text">{{detil.description2}}</p>
+          <img src="{{serv.image2.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
+          <h2 class="about_subtaital">{{serv.title2}}</h2>
+          <p class="about_text">{{serv.description2}}</p>
         </div>
       </div>
     </div>
   </div>
+  {% endfor %}
 </div>
 <!-- detai section end -->
 {% endblock continer %}

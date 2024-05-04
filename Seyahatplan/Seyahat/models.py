@@ -7,6 +7,7 @@ class catagori(models.Model):
         return self.name
  
 class services(models.Model):
+    
     title = models.CharField(max_length=200, unique=True)
     Catagori=models.ForeignKey(catagori,null=True, on_delete=models.DO_NOTHING)
     description = models.TextField()
