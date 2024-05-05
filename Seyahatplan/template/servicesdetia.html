@@ -2,6 +2,12 @@
 {% load static %}
 {% block title %}"Service Detail"{% endblock title %}
 {% block continer %}
+<style>
+  #rota {
+    margin: 0 auto;
+    max-width: 600px; /* Opsiyonel: İstenilen genişliği belirleyebilirsiniz */
+  }
+</style>
 <!-- detai section start -->
 <div class="about_section layout_padding">
   <div class="container-fluid">
@@ -9,11 +15,11 @@
     {% for serv in services_in_category %}
       <div class="col-md-6">
         <div class="about_taital_main">
-          <h1 class="about_taital">{{serv.title}}</h1>
-          <p class="about_text">{{serv.description}}</p>
-          <div class="button_container">
+          <h1 class="about_taital" style="text-align: center; color: black;">{{serv.title}}</h1>
+          <p class="about_text" style="margin-bottom: 20px;">{{serv.description}}</p>
+          <div class="button_container" style="margin-bottom: 20px;">
             <a href="{{serv.link_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>{{serv.link_title}}</a>
-           <a href="{{serv.link_url2}}" target="_blank" class="btn btn-secondary"><i class="fas fa-info-circle"></i> {{serv.link_title2 }}</a>
+            <a href="{{serv.link_url2}}" target="_blank" class="btn btn-secondary"><i class="fas fa-info-circle"></i> {{serv.link_title2 }}</a>
           </div>
         </div>
       </div>
@@ -21,42 +27,99 @@
         <div><img src="{{serv.image.url}}" class="about_img"></div>
       </div>
     {% endfor %}
-      
     </div>
   </div>
 </div>
+
+<div class="about_section layout_padding">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="about_taital" style="text-align: center; color: black;">gezilecek rota</h1>
+      </div>
+    <br><br>
+
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <nav>
+          <a href="#yer1" class="rota-link" style="color: blue;">Gezilecek Yer 1</a>
+          <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> <!-- Boşluk ekleyici -->
+          <a href="#yer2" class="rota-link" style="color: green;">Gezilecek Yer 2</a>
+          <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> <!-- Boşluk ekleyici -->
+          <a href="#yer3" class="rota-link" style="color: red;">Gezilecek Yer 3</a>
+          <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> <!-- Boşluk ekleyici -->
+          <a href="#yer4" class="rota-link" style="color: orange;">Gezilecek Yer 4</a> 
+        </nav>
+        <br>
+        <section>
+          <h2 id="yer1" style="color: blue;">Gezilecek Yer 1</h2>
+          <p style="color: blue;">Bu bölümde Gezilecek Yer 1 hakkında bilgiler yer alacak.</p>
+        </section>
+        <section>
+          <h2 id="yer2" style="color: green;">Gezilecek Yer 2</h2>
+          <p style="color: green;">Bu bölümde Gezilecek Yer 2 hakkında bilgiler yer alacak.</p>
+        </section>
+        <section>
+          <h2 id="yer3" style="color: red;">Gezilecek Yer 3</h2>
+          <p style="color: red;">Bu bölümde Gezilecek Yer 3 hakkında bilgiler yer alacak.</p>
+        </section>
+        <section>
+          <h2 id="yer4" style="color: orange;">Gezilecek Yer 4</h2>
+          <p style="color: orange;">Bu bölümde Gezilecek Yer 4 hakkında bilgiler yer alacak.</p>
+        </section>
+      </div>
+      <div class="col-md-6 padding_right_0">
+        <!-- <img src="https://via.placeholder.com/500x500" alt="Harita veya görüntü" style="max-width: 100%; height: auto;"> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="about_section layout_padding">
   {% for serv in services_in_category %}
+  {% for servi in detail1ve2 %}
   <div class="container-fluid">
-    <h1 class="about_taital text-center">{{serv.main_title1}}</h1>
+    <div class="col-md-12">
+      <h1 class="about_taital" style="text-align: center; color: black;">{{serv.main_title}}</h1>
+    </div>
+    <br><br>
     <div class="row justify-content-center">
       <div class="col-md-4">
         <div class="about_item text-center">
-          <img src="{{serv.image1.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
-          <h2 class="about_subtaital">{{serv.title1}} 1</h2>
-          <p class="about_text">{{serv.description1}}
+          <img src="{{servi.image1.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
+          <h2 class="about_subtaital">{{servi.title1}} 1</h2>
+          <p class="about_text">{{servi.description1}}
           </p>
         </div>    
       </div>
       </div>
     </div>
     {% endfor %}
+
+    {% endfor %}
   </div>
 </div>
 <div class="about_section layout_padding">
   {% for serv in services_in_category %}
+  {% for servi in detail1ve2 %}
   <div class="container-fluid">
-    <h1 class="about_taital text-center">{{serv.main_title2}}</h1>
+    <div class="col-md-12">
+      <h1 class="about_taital" style="text-align: center; color: black;">{{serv.main_title2}}</h1>
+    </div>
+    <br><br>
     <div class="row justify-content-center">
       <div class="col-md-4">
         <div class="about_item text-center">
-          <img src="{{serv.image2.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
-          <h2 class="about_subtaital">{{serv.title2}}</h2>
-          <p class="about_text">{{serv.description2}}</p>
+          <img src="{{servi.image2.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
+          <h2 class="about_subtaital">{{servi.title2}}</h2>
+          <p class="about_text">{{servi.description2}}</p>
         </div>
       </div>
     </div>
   </div>
+  {% endfor %}
   {% endfor %}
 </div>
 <!-- detai section end -->
