@@ -2,6 +2,9 @@ from unicodedata import category
 from django.shortcuts import   get_object_or_404, render
 
 from . models import  ServiceDetail, catagori, services
+
+
+
 def service(request):
   Service_page = services.objects.all()
   context={'Service_page':Service_page}
@@ -21,3 +24,10 @@ def servicdatai(request,id):
         'details': details,}
   return render(request ,'servicesdetia.html',context)
 
+
+def search_service(request):
+    if request.method=="POST":
+      search=request.POST['search']
+      arama=services.objects.filter(name__contains=search)
+      context={'search':search,'arama':arama}
+      return render(request, 'search_services.html',context)

@@ -30,7 +30,6 @@
     </div>
   </div>
 </div>
-
 <div class="about_section layout_padding">
   <div class="container-fluid">
     <div class="row">
@@ -38,7 +37,6 @@
         <h1 class="about_taital" style="text-align: center; color: black;">gezilecek rota</h1>
       </div>
     <br><br>
-
     </div>
     <div class="row">
       <div class="col-md-6">
@@ -70,57 +68,63 @@
         </section>
       </div>
       <div class="col-md-6 padding_right_0">
-        <!-- <img src="https://via.placeholder.com/500x500" alt="Harita veya görüntü" style="max-width: 100%; height: auto;"> -->
       </div>
     </div>
   </div>
 </div>
-
-
-<div class="about_section layout_padding">
-  {% for serv in services_in_category %}
-  {% for servi in detail1ve2 %}
-  <div class="container-fluid">
-    <div class="col-md-12">
-      <h1 class="about_taital" style="text-align: center; color: black;">{{serv.main_title}}</h1>
+<div class="container">
+  <div class="row justify-content-center mb-5">
+    <div class="col-lg-12 text-center"> 
     </div>
-    <br><br>
-    <div class="row justify-content-center">
-      <div class="col-md-4">
-        <div class="about_item text-center">
-          <img src="{{servi.image1.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
-          <h2 class="about_subtaital">{{servi.title1}} 1</h2>
-          <p class="about_text">{{servi.description1}}
-          </p>
-        </div>    
-      </div>
-      </div>
-    </div>
-    {% endfor %}
-
-    {% endfor %}
   </div>
-</div>
-<div class="about_section layout_padding">
   {% for serv in services_in_category %}
-  {% for servi in detail1ve2 %}
-  <div class="container-fluid">
-    <div class="col-md-12">
-      <h1 class="about_taital" style="text-align: center; color: black;">{{serv.main_title2}}</h1>
-    </div>
-    <br><br>
-    <div class="row justify-content-center">
-      <div class="col-md-4">
-        <div class="about_item text-center">
-          <img src="{{servi.image2.url}}" alt="Aktivite Fotoğrafı 1" class="about_img">
-          <h2 class="about_subtaital">{{servi.title2}}</h2>
-          <p class="about_text">{{servi.description2}}</p>
+  <div class="col-md-12">
+    <!--  -->
+    <h1 class="about_taital" style="text-align: center; color: black;">{{serv.main_title}}</h1>
+  </div>
+  {% endfor %}
+
+  <div class="row justify-content-center">
+    {% for serv in services_in_category %}
+    {% for servi in detail1ve2 %}
+    <div class="col-lg-4 mb-4" data-city="istanbul">
+      <div class="card border-0 text-center">
+        <img src="{{servi.image1.url}}" class="card-img-top" alt="Resim">
+        <div class="card-body">
+          <h3 class="card-title">{{servi.title1}}</h3>
+          <p class="card-text">{{servi.description1}}</p>
         </div>
       </div>
     </div>
+    {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+<div class="container">
+  <div class="row justify-content-center mb-5">
+    <div class="col-lg-12 text-center"> 
+    </div>
+  </div>
+  {% for serv in services_in_category %}
+  <div class="col-md-12">
+    <!--  -->
+    <h1 class="about_taital" style="text-align: center; color: black;">{{serv.main_title2}}</h1>
   </div>
   {% endfor %}
-  {% endfor %}
+  <div class="row justify-content-center">
+    {% for serv in services_in_category %}
+    {% for servi in detail1ve2 %}
+    <div class="col-lg-4 mb-4" data-city="istanbul">
+      <div class="card border-0 text-center">
+        <img src="{{servi.image2.url}}" class="card-img-top" alt="Resim">
+        <div class="card-body">
+          <h3 class="card-title">{{servi.title2}}</h3>
+          <p class="card-text">{{servi.description2}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endfor %}
+  </div>
 </div>
-<!-- detai section end -->
 {% endblock continer %}

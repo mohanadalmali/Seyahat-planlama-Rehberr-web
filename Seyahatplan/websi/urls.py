@@ -1,5 +1,6 @@
 from django.urls import path
-from . import views
+from . import views 
+from Seyahat.views import search_service
 urlpatterns = [
   path('', views.index,name="index"),
   path('about', views.about,name='about'),

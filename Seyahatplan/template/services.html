@@ -7,12 +7,13 @@
  <div class="container">
    <div class="row justify-content-center mb-5">
      <div class="col-lg-12 text-center">
-       <!-- <h2 class="section-title mb-3">Özel Teklifler ve İndirimler</h2> -->
        <p class="section-subtitle">gezmek istedğiniz yerleri keşf edin</p>
        <div class="mb-4"></div>
        <div class="input-group mb-3">
-         <input type="text" class="form-control" placeholder="Şehir Ara" aria-label="Şehir Ara" aria-describedby="button-addon2" id="city-search">
+        <form class="d-flex" method="=POST" action="{% url 'search_service' %}">{% csrf_token %}
+         <input class=type="text" class="form-control" placeholder="Şehir Ara" aria-label="Şehir Ara" aria-describedby="button-addon2" id="city-search" name="search">
          <button class="btn btn-primary" type="button" id="button-addon2">Ara</button>
+        </form>
        </div>
      </div>
    </div>
@@ -33,5 +34,6 @@
    </div>
  </div>
 </section>
+
 <!-- services section end -->
 {% endblock continer %}
