@@ -15,13 +15,15 @@ def servicdatai(request,id):
   service = get_object_or_404(services, id=id)
     
   details = service.details.all()
+  
   services_in_category = services.objects.filter(Catagori=category)
   detail1ve2=ServiceDetail.objects.filter(Catagori=category,service=service)
-
+  detailrota=ServiceDetail.objects.all()
+  
   Service_page = services.objects.all()
- 
+  service_details = ServiceDetail.objects.all()
   context={'id':id,'category': category,'Service_page':Service_page,'services_in_category': services_in_category,'detail1ve2':detail1ve2,'service': service,
-        'details': details,}
+        'details': details,'detailrota':detailrota,'service_details': service_details}
   return render(request ,'servicesdetia.html',context)
 
 

@@ -39,36 +39,38 @@
     <br><br>
     </div>
     <div class="row">
+      {% for servida in service_details %}
       <div class="col-md-6">
         <nav>
-          <a href="#yer1" class="rota-link" style="color: blue;">Gezilecek Yer 1</a>
+          <a href="#yer1" class="rota-link" style="color: blue;">{{servida.GezilecekYer1}}</a>
           <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> <!-- Boşluk ekleyici -->
-          <a href="#yer2" class="rota-link" style="color: green;">Gezilecek Yer 2</a>
+          <a href="#yer2" class="rota-link" style="color: green;">{{servida.GezilecekYer2}}</a>
           <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> <!-- Boşluk ekleyici -->
-          <a href="#yer3" class="rota-link" style="color: red;">Gezilecek Yer 3</a>
+          <a href="#yer3" class="rota-link" style="color: red;">{{servida.GezilecekYer3}}</a>
           <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> <!-- Boşluk ekleyici -->
-          <a href="#yer4" class="rota-link" style="color: orange;">Gezilecek Yer 4</a> 
+          <a href="#yer4" class="rota-link" style="color: orange;">{{servida.GezilecekYer4}}</a> 
         </nav>
         <br>
         <section>
-          <h2 id="yer1" style="color: blue;">Gezilecek Yer 1</h2>
-          <p style="color: blue;">Bu bölümde Gezilecek Yer 1 hakkında bilgiler yer alacak.</p>
+          <h2 id="yer1" style="color: blue;">{{servida.GezilecekYer1}}</h2>
+          <p style="color: blue;">{{servida.description_1}}</p>
         </section>
         <section>
-          <h2 id="yer2" style="color: green;">Gezilecek Yer 2</h2>
-          <p style="color: green;">Bu bölümde Gezilecek Yer 2 hakkında bilgiler yer alacak.</p>
+          <h2 id="yer2" style="color: green;">{{servida.GezilecekYer2}}</h2>
+          <p style="color: green;">{{servida.description_2}}</p>
         </section>
         <section>
-          <h2 id="yer3" style="color: red;">Gezilecek Yer 3</h2>
-          <p style="color: red;">Bu bölümde Gezilecek Yer 3 hakkında bilgiler yer alacak.</p>
+          <h2 id="yer3" style="color: red;">{{servida.GezilecekYer3}}</h2>
+          <p style="color: red;">{{servida.description_3}}</p>
         </section>
         <section>
-          <h2 id="yer4" style="color: orange;">Gezilecek Yer 4</h2>
-          <p style="color: orange;">Bu bölümde Gezilecek Yer 4 hakkında bilgiler yer alacak.</p>
+          <h2 id="yer4" style="color: orange;">{{servida.GezilecekYer4}}</h2>
+          <p style="color: orange;">{{servida.description_4}}</p>
         </section>
       </div>
       <div class="col-md-6 padding_right_0">
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>

@@ -21,15 +21,28 @@ class services(models.Model):
     
     main_title = models.CharField(max_length=200)
     main_title2 = models.CharField(max_length=200)
-
+    
+    
+    
     
     def __str__(self):
         return self.title
 
 class ServiceDetail(models.Model):
-    service = models.ForeignKey(services, related_name='details', on_delete=models.CASCADE)
-    
+    service = models.ForeignKey(services, related_name='details', on_delete=models.CASCADE)    
     Catagori=models.ForeignKey(catagori,null=True, on_delete=models.DO_NOTHING)
+    
+    GezilecekYer1 = models.CharField(max_length=200, unique=True)
+    description_1 = models.TextField()
+    
+    GezilecekYer2 = models.CharField(max_length=200, unique=True)
+    description_2 = models.TextField()
+    
+    GezilecekYer3 = models.CharField(max_length=200, unique=True)
+    description_3 = models.TextField()
+    
+    GezilecekYer4 = models.CharField(max_length=200, unique=True)
+    description_4 = models.TextField()
     
     title1 = models.CharField(max_length=200)
     image1 = models.ImageField(upload_to="media")
@@ -38,6 +51,9 @@ class ServiceDetail(models.Model):
     title2 = models.CharField(max_length=200)
     image2 = models.ImageField(upload_to="media")
     description2 = models.TextField()
+    
+    
+    
     
     def save(self, *args, **kwargs):
         # ServiceDetail öğesi oluşturulduğunda, ilgili services ve category öğelerini bulun
