@@ -15,12 +15,4 @@ def blog(request):
   return render(request,'blog.html')
 
 def contact_view(request):
-    if request.method == 'POST':
-        form = ContactMessage(request.POST)
-        if form.is_valid():
-            form.save()
-            
-            return redirect('success_url') 
-    else:
-        form = ContactMessage()
-    return render(request, 'contact.html', {'form': form})
+    return render(request, 'contact.html')

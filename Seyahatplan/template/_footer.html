@@ -8,12 +8,12 @@
      <input type="text" class="mail_text" placeholder="Enter your email" name="Enter your email">
      <div class="subscribe_bt"><a href="#">Subscribe</a></div>
    </div> -->
-   <div class="location_main">
+   <!-- <div class="location_main">
      <div class="call_text"><img src="{% static "images/call-icon.png" %}"></div>
-     <div class="call_text"><a href="#">{{indexss.footer_phone_number}}</a></div>
+     <div class="call_text"><a href="tel:{{ indexss.footer_phone_number.url }}">{{indexss.footer_phone_number}}</a></div>
      <div class="call_text"><img src="{% static "images/mail-icon.png" %}"></div>
-     <div class="call_text"><a href="mailto:mohanadalmalii@gmail.com">{{indexss.footer_email}}</a></div>
-   </div>
+     <div class="call_text"><a href="mailto:{{ indexss.footer_email.url }}">{{indexss.footer_email}}</a></div>
+   </div> -->
    <div class="social_icon">
     <ul class="social-icons">
       <li><a href="{{indxss.footer_facebook_link}}" target="_blank"><img src="{% static "images/fb-icon.png" %}" alt="Facebook"></a></li>

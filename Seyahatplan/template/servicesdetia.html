@@ -12,14 +12,15 @@
 <div class="about_section layout_padding">
   <div class="container-fluid">
     <div class="row">
-    {% for serv in services_in_category %}
+    {% for serv in Service_page %}
+    {% for deta in detai %}
       <div class="col-md-6">
         <div class="about_taital_main">
           <h1 class="about_taital" style="text-align: center; color: black;">{{serv.title}}</h1>
           <p class="about_text" style="margin-bottom: 20px;">{{serv.description}}</p>
           <div class="button_container" style="margin-bottom: 20px;">
-            <a href="{{serv.link_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>{{serv.link_title}}</a>
-            <a href="{{serv.link_url2}}" target="_blank" class="btn btn-secondary"><i class="fas fa-info-circle"></i> {{serv.link_title2 }}</a>
+            <a href="{{deta.link_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>{{deta.link_title}}</a>
+            <a href="{{deta.link_url2}}" target="_blank" class="btn btn-secondary"><i class="fas fa-info-circle"></i> {{deta.link_title2 }}</a>
           </div>
         </div>
       </div>
@@ -27,6 +28,8 @@
         <div><img src="{{serv.image.url}}" class="about_img"></div>
       </div>
     {% endfor %}
+    {% endfor %}
+
     </div>
   </div>
 </div>
@@ -39,33 +42,33 @@
     <br><br>
     </div>
     <div class="row">
-      {% for servida in service_details %}
+    {% for deta in detai %}
       <div class="col-md-6">
         <nav>
-          <a href="#yer1" class="rota-link" style="color: blue;">{{servida.GezilecekYer1}}</a>
+          <a href="#yer1" class="rota-link" style="color: blue;">{{deta.GezilecekYer1}}</a>
           <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> <!-- Boşluk ekleyici -->
-          <a href="#yer2" class="rota-link" style="color: green;">{{servida.GezilecekYer2}}</a>
+          <a href="#yer2" class="rota-link" style="color: green;">{{deta.GezilecekYer2}}</a>
           <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> <!-- Boşluk ekleyici -->
-          <a href="#yer3" class="rota-link" style="color: red;">{{servida.GezilecekYer3}}</a>
+          <a href="#yer3" class="rota-link" style="color: red;">{{deta.GezilecekYer3}}</a>
           <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> <!-- Boşluk ekleyici -->
-          <a href="#yer4" class="rota-link" style="color: orange;">{{servida.GezilecekYer4}}</a> 
+          <a href="#yer4" class="rota-link" style="color: orange;">{{deta.GezilecekYer4}}</a> 
         </nav>
         <br>
         <section>
-          <h2 id="yer1" style="color: blue;">{{servida.GezilecekYer1}}</h2>
-          <p style="color: blue;">{{servida.description_1}}</p>
+          <h2 id="yer1" style="color: blue;">{{deta.GezilecekYer1}}</h2>
+          <p style="color: blue;">{{deta.description_1}}</p>
         </section>
         <section>
-          <h2 id="yer2" style="color: green;">{{servida.GezilecekYer2}}</h2>
-          <p style="color: green;">{{servida.description_2}}</p>
+          <h2 id="yer2" style="color: green;">{{deta.GezilecekYer2}}</h2>
+          <p style="color: green;">{{deta.description_2}}</p>
         </section>
         <section>
-          <h2 id="yer3" style="color: red;">{{servida.GezilecekYer3}}</h2>
-          <p style="color: red;">{{servida.description_3}}</p>
+          <h2 id="yer3" style="color: red;">{{deta.GezilecekYer3}}</h2>
+          <p style="color: red;">{{deta.description_3}}</p>
         </section>
         <section>
-          <h2 id="yer4" style="color: orange;">{{servida.GezilecekYer4}}</h2>
-          <p style="color: orange;">{{servida.description_4}}</p>
+          <h2 id="yer4" style="color: orange;">{{deta.GezilecekYer4}}</h2>
+          <p style="color: orange;">{{deta.description_4}}</p>
         </section>
       </div>
       <div class="col-md-6 padding_right_0">
@@ -79,26 +82,29 @@
     <div class="col-lg-12 text-center"> 
     </div>
   </div>
-  {% for serv in services_in_category %}
+  
+  {% for deta in detai %}
+
   <div class="col-md-12">
     <!--  -->
-    <h1 class="about_taital" style="text-align: center; color: black;">{{serv.main_title}}</h1>
+    <h1 class="about_taital" style="text-align: center; color: black;">{{deta.main_title}}</h1>
   </div>
   {% endfor %}
 
   <div class="row justify-content-center">
-    {% for serv in services_in_category %}
-    {% for servi in detail1ve2 %}
+    <!-- {% for serv in services_in_category %} -->
+    {% for deta in detai %}
+    
     <div class="col-lg-4 mb-4" data-city="istanbul">
       <div class="card border-0 text-center">
-        <img src="{{servi.image1.url}}" class="card-img-top" alt="Resim">
+        <img src="{{deta.image1.url}}" class="card-img-top" alt="Resim">
         <div class="card-body">
-          <h3 class="card-title">{{servi.title1}}</h3>
-          <p class="card-text">{{servi.description1}}</p>
+          <h3 class="card-title">{{deta.title1}}</h3>
+          <p class="card-text">{{deta.description1}}</p>
         </div>
       </div>
     </div>
-    {% endfor %}
+    <!-- {% endfor %} -->
     {% endfor %}
   </div>
 </div>
@@ -107,26 +113,31 @@
     <div class="col-lg-12 text-center"> 
     </div>
   </div>
-  {% for serv in services_in_category %}
+  {% for deta in detai %}
+
   <div class="col-md-12">
     <!--  -->
-    <h1 class="about_taital" style="text-align: center; color: black;">{{serv.main_title2}}</h1>
+    <h1 class="about_taital" style="text-align: center; color: black;">{{deta.main_title2}}</h1>
   </div>
   {% endfor %}
+</div>
+
   <div class="row justify-content-center">
-    {% for serv in services_in_category %}
-    {% for servi in detail1ve2 %}
+    <!-- {% for serv in services_in_category %} -->
+    {% for deta in detai %}
+
     <div class="col-lg-4 mb-4" data-city="istanbul">
       <div class="card border-0 text-center">
-        <img src="{{servi.image2.url}}" class="card-img-top" alt="Resim">
+        <img src="{{deta.image2.url}}" class="card-img-top" alt="Resim">
         <div class="card-body">
-          <h3 class="card-title">{{servi.title2}}</h3>
-          <p class="card-text">{{servi.description2}}</p>
+          <h3 class="card-title">{{deta.title2}}</h3>
+          <p class="card-text">{{deta.description2}}</p>
         </div>
       </div>
     </div>
-    {% endfor %}
+    <!-- {% endfor %} -->
     {% endfor %}
   </div>
 </div>
+
 {% endblock continer %}

@@ -3,28 +3,40 @@ from django.shortcuts import   get_object_or_404, render
 
 from . models import  ServiceDetail, catagori, services
 
-
-
 def service(request):
   Service_page = services.objects.all()
+  
+  query=request.GET.get('search')
+  if query:
+    Service_page=Service_page.filter(title__icontains=query)#arama ilgil modelin title göre yapılıyor buda servic modele göre yaptım kucuk buyuk harf önemsiz 
   context={'Service_page':Service_page}
   return render(request,'services.html',context)
 
+
 def servicdatai(request,id):
-  category = get_object_or_404(catagori, id=id)
   service = get_object_or_404(services, id=id)
-    
-  details = service.details.all()
+  category= get_object_or_404(catagori, id=id)
   
-  services_in_category = services.objects.filter(Catagori=category)
-  detail1ve2=ServiceDetail.objects.filter(Catagori=category,service=service)
-  detailrota=ServiceDetail.objects.all()
   
-  Service_page = services.objects.all()
-  service_details = ServiceDetail.objects.all()
-  context={'id':id,'category': category,'Service_page':Service_page,'services_in_category': services_in_category,'detail1ve2':detail1ve2,'service': service,
-        'details': details,'detailrota':detailrota,'service_details': service_details}
+  Service_page = services.objects.filter(Catagori=category)
+  #catagorisi aynı eşit ise bilgi verecek değlse vermez yanı kısaca ilgil servic bilgileri gelecek başlık fotoğraf açıklama
+  
+  detai=ServiceDetail.objects.filter(service=service, Catagori=category)
+  #servic detai bilgilerini service ve catagori bilgisi eşit olanlar gelecek fitreleme yapılacak 
+  context={
+    'detai':detai,
+    'id':id,
+    'Service_page':Service_page,
+    'service':service,
+    'category':category,
+  }
+  
   return render(request ,'servicesdetia.html',context)
+
+
+
+
+
 
 
 def search_service(request):
