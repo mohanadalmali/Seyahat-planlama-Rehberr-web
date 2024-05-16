@@ -57,18 +57,30 @@
         <section>
           <h2 id="yer1" style="color: blue;">{{deta.GezilecekYer1}}</h2>
           <p style="color: blue;">{{deta.description_1}}</p>
+          <div class="button_container" style="margin-bottom: 20px;">
+            <a href="{{deta.link_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
+          </div>
         </section>
         <section>
           <h2 id="yer2" style="color: green;">{{deta.GezilecekYer2}}</h2>
           <p style="color: green;">{{deta.description_2}}</p>
+          <div class="button_container" style="margin-bottom: 20px;">
+            <a href="{{deta.link_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
+          </div>
         </section>
         <section>
           <h2 id="yer3" style="color: red;">{{deta.GezilecekYer3}}</h2>
           <p style="color: red;">{{deta.description_3}}</p>
+          <div class="button_container" style="margin-bottom: 20px;">
+            <a href="{{deta.link_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
+          </div>
         </section>
         <section>
           <h2 id="yer4" style="color: orange;">{{deta.GezilecekYer4}}</h2>
           <p style="color: orange;">{{deta.description_4}}</p>
+          <div class="button_container" style="margin-bottom: 20px;">
+            <a href="{{deta.link_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
+          </div>
         </section>
       </div>
       <div class="col-md-6 padding_right_0">
@@ -78,66 +90,56 @@
   </div>
 </div>
 <div class="container">
-  <div class="row justify-content-center mb-5">
-    <div class="col-lg-12 text-center"> 
-    </div>
-  </div>
-  
   {% for deta in detai %}
-
   <div class="col-md-12">
     <!--  -->
     <h1 class="about_taital" style="text-align: center; color: black;">{{deta.main_title}}</h1>
   </div>
-  {% endfor %}
 
   <div class="row justify-content-center">
-    <!-- {% for serv in services_in_category %} -->
-    {% for deta in detai %}
-    
+  {% for servici in servicics %}
+
     <div class="col-lg-4 mb-4" data-city="istanbul">
       <div class="card border-0 text-center">
-        <img src="{{deta.image1.url}}" class="card-img-top" alt="Resim">
+        <img src="{{servici.image1.url}}" class="card-img-top" alt="Resim">
         <div class="card-body">
-          <h3 class="card-title">{{deta.title1}}</h3>
-          <p class="card-text">{{deta.description1}}</p>
+          <h3 class="card-title">{{servici.title1}}</h3>
+          <p class="card-text">{{servici.description1}}</p>
         </div>
       </div>
     </div>
-    <!-- {% endfor %} -->
+ 
     {% endfor %}
+
   </div>
+
+  {% endfor %}
 </div>
 <div class="container">
-  <div class="row justify-content-center mb-5">
-    <div class="col-lg-12 text-center"> 
-    </div>
-  </div>
   {% for deta in detai %}
 
   <div class="col-md-12">
     <!--  -->
     <h1 class="about_taital" style="text-align: center; color: black;">{{deta.main_title2}}</h1>
   </div>
-  {% endfor %}
-</div>
-
   <div class="row justify-content-center">
-    <!-- {% for serv in services_in_category %} -->
-    {% for deta in detai %}
+  {% for servici in servicics %}
 
     <div class="col-lg-4 mb-4" data-city="istanbul">
       <div class="card border-0 text-center">
-        <img src="{{deta.image2.url}}" class="card-img-top" alt="Resim">
+        <img src="{{servici.image2.url}}" class="card-img-top" alt="Resim">
         <div class="card-body">
-          <h3 class="card-title">{{deta.title2}}</h3>
-          <p class="card-text">{{deta.description2}}</p>
+          <h3 class="card-title">{{servici.title2}}</h3>
+          <p class="card-text">{{servici.description2}}</p>
         </div>
       </div>
     </div>
-    <!-- {% endfor %} -->
+
+
     {% endfor %}
+
   </div>
+  {% endfor %}
 </div>
 
 {% endblock continer %}

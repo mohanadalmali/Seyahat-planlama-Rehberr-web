@@ -1,7 +1,7 @@
 from unicodedata import category
 from django.shortcuts import   get_object_or_404, render
 
-from . models import  ServiceDetail, catagori, services
+from . models import  ServiceDetail, catagori, services, servicic
 
 def service(request):
   Service_page = services.objects.all()
@@ -11,7 +11,6 @@ def service(request):
     Service_page=Service_page.filter(title__icontains=query)#arama ilgil modelin title göre yapılıyor buda servic modele göre yaptım kucuk buyuk harf önemsiz 
   context={'Service_page':Service_page}
   return render(request,'services.html',context)
-
 
 def servicdatai(request,id):
   service = get_object_or_404(services, id=id)
@@ -23,7 +22,12 @@ def servicdatai(request,id):
   
   detai=ServiceDetail.objects.filter(service=service, Catagori=category)
   #servic detai bilgilerini service ve catagori bilgisi eşit olanlar gelecek fitreleme yapılacak 
+  
+  servicics = servicic.objects.filter(service_detail__in=detai)
+  
+  
   context={
+    'servicics':servicics,
     'detai':detai,
     'id':id,
     'Service_page':Service_page,
@@ -33,15 +37,11 @@ def servicdatai(request,id):
   
   return render(request ,'servicesdetia.html',context)
 
-
-
-
-
-
-
 def search_service(request):
     if request.method=="POST":
       search=request.POST['search']
       arama=services.objects.filter(name__contains=search)
       context={'search':search,'arama':arama}
       return render(request, 'search_services.html',context)
+
+
