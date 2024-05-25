@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block continer %}
+<div class="about_section layout_padding">
+    <div class="container-fluid">
+      <div class="row">
+      {% for ra in gezilecekdet %}
+        <div class="col-md-6">
+          <div class="about_taital_main">
+            <h1 class="about_taital" style="text-align: center; color: black;">{{ra.title}}</h1>
+            <p class="about_text" style="margin-bottom: 20px;">{{ra.description}}</p>
+            <div class="button_container" style="margin-bottom: 20px;">
+              <a href="{{ra.link_url}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>{{deta.link_title}}</a>
+              <a href="{{ra.link_url2}}" target="_blank" class="btn btn-secondary"><i class="fas fa-info-circle"></i> {{ra.link_title2 }}</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 padding_right_0">
+          <div><img src="{{ra.image.url}}" class="about_img"></div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+{% endblock continer %}
+

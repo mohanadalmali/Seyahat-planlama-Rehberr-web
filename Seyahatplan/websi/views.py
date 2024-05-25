@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import  render,redirect
+from django.contrib import messages
 from Seyahat.models import services
-from . models import abouts,ContactMessage,IndexPage
+from . models import abouts,IndexPage
 
 def index(request):
   homepage_services = services.objects.filter(show_on_homepage=True) 
@@ -14,5 +15,8 @@ def about(request):
 def blog(request):
   return render(request,'blog.html')
 
-def contact_view(request):
-    return render(request, 'contact.html')
+def contact(request):
+
+  return render(request , 'contac.html')
+      
+  

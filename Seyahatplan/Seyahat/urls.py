@@ -4,5 +4,5 @@ urlpatterns = [
   path('services', views.service,name='services'),
   path('servicdatai/<int:id>', views.servicdatai,name='servicdatai'),
   path('search/', views.search_service, name='search_service'),
-  
-] 
+  path('rotadetai/<int:id>', views.rotadetai,name='rotadetai'),  
+]
