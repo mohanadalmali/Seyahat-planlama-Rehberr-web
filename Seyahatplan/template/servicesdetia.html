@@ -94,7 +94,7 @@
     <div class="row">
     {% for deta in gezilecek_yerler %}
     {% for serv in detai %}
-
+    
       <div class="col-md-6">
         <nav>
           <a href="#yer1" class="rota-link" style="color: blue;">{{deta.GezilecekYer}}</a>
@@ -106,7 +106,6 @@
           <p style="color: blue;">{{deta.description}}</p>
           <div class="button_container" style="margin-bottom: 20px;">
             <a href="{{deta.adreslink1}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
-            <a href="{% url 'rotadetai' serv.id %}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>daha fazla bilgi </a>
           </div>
         </section>
         <!-- <section>
@@ -133,6 +132,9 @@
             <a href="{% url 'rotadetai' serv.id %}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>daha fazla bilgi </a>
           </div>
         </section> -->
+        <div class="button_container" style="margin-bottom: 20px;">
+          <a href="{% url 'rotadetai' serv.id %}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>daha fazla bilgi </a>
+        </div>
       </div>
       <div class="col-md-6 padding_right_0">
       </div>

@@ -3,7 +3,7 @@ from django.shortcuts import  render,redirect
 from django.contrib import messages
 from Seyahat.models import services
 from . models import abouts,IndexPage
-
+from . models import ContactMessage
 def index(request):
   homepage_services = services.objects.filter(show_on_homepage=True) 
   index_pages=IndexPage.objects.all()
@@ -16,7 +16,17 @@ def blog(request):
   return render(request,'blog.html')
 
 def contact(request):
-
+  if request.method == "POST":
+    form=ContactMessage()
+    name=request.POST.get('name')
+    phone_number=request.POST.get('phone_number')
+    email=request.POST.get('email')
+    message=request.POST.get('message')
+    form.name=name
+    form.phone_number=phone_number
+    form.email=email
+    form.message=message
+    form.save()
   return render(request , 'contac.html')
       
   

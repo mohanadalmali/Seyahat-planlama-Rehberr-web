@@ -30,7 +30,6 @@ class ServiceDetail(models.Model):
     
     main_title = models.CharField(max_length=200)
     main_title2 = models.CharField(max_length=200)
-    
     def __str__(self):
         return self.name
 
@@ -63,6 +62,8 @@ class gezilecekyer(models.Model):
         return self.title
 
 class gezilecekdetai(models.Model):
+    service_detail = models.ForeignKey('ServiceDetail', related_name='gezilecekdetai', null=True, blank=True, on_delete=models.SET_NULL)
+    
     gezilecekyer = models.ForeignKey(gezilecekyer, related_name='details', on_delete=models.CASCADE)
     title=models.CharField(max_length=50, null=True)
     image = models.ImageField(upload_to="media")

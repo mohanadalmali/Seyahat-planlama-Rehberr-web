@@ -41,11 +41,21 @@ def search_service(request):
     
 def rotadetai(request,id):
   service = get_object_or_404(services, id=id)
-  gezilecekye=gezilecekyer.objects.all()
-  gezilecekdet=gezilecekdetai.objects.filter()
+  category= get_object_or_404(catagori, id=id)
+  detai = get_object_or_404(ServiceDetail, id=id)
+    # Fetch the specific gezilecekyer object by its ID
+  gezilecekye = get_object_or_404(gezilecekyer, id=id)
+  gezilecekyerdetai = get_object_or_404(gezilecekdetai, id=id)
+  
+  
+    # Filter gezilecekdetai objects related to the specific gezilecekyer
+  gezilecekdet = gezilecekdetai.objects.filter(gezilecekyer__GezilecekYer=gezilecekyerdetai.title)
   context = {
+        'gezilecekyerdetai':gezilecekyerdetai,
         'gezilecekdet':gezilecekdet,
         'gezilecekye':gezilecekye,
-        'service': service,
+        'detai': detai,
+        'service':service,
+        'category':category,
     }
   return render(request,'rotadetai.html',context)
