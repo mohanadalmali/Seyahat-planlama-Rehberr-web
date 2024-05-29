@@ -19,14 +19,13 @@ def contact(request):
   if request.method == "POST":
     form=ContactMessage()
     name=request.POST.get('name')
-    phone_number=request.POST.get('phone_number')
     email=request.POST.get('email')
     message=request.POST.get('message')
     form.name=name
-    form.phone_number=phone_number
     form.email=email
     form.message=message
     form.save()
+   
   return render(request , 'contac.html')
       
   
