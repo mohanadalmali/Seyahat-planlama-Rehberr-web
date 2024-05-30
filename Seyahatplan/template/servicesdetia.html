@@ -2,56 +2,6 @@
 {% load static %}
 {% block title %}"Service Detail"{% endblock title %}
 {% block continer %}
-<!-- <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  .comment-section {
-    width: 60%;
-    margin: 50px auto;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  .comment-section h2 {
-    margin-bottom: 20px;
-  }
-  .comment-box {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .comment-box:focus {
-    border-color: #007bff;
-  }
-  .comment-button {
-    padding: 10px 15px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .comment-button:hover {
-    background-color: #0056b3;
-  }
-  .comments-list {
-    margin-top: 30px;
-  }
-  .comment {
-    margin-bottom: 20px;
-    padding: 10px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-</style> -->
 <style>
   #rota {
     margin: 0 auto;
@@ -79,7 +29,6 @@
       </div>
     {% endfor %}
     {% endfor %}
-
     </div>
   </div>
 </div>
@@ -92,68 +41,44 @@
     <br><br>
     </div>
     <div class="row">
-    {% for deta in gezilecek_yerler %}
+    {% for gezileceky in gezilecek_yerler %}
     {% for serv in detai %}
-    
       <div class="col-md-6">
         <nav>
-          <a href="#yer1" class="rota-link" style="color: blue;">{{deta.GezilecekYer}}</a>
+          <a href="#yer1" class="rota-link" style="color: blue;">{{gezileceky.GezilecekYer}}</a>
           <div style="display: inline-block; width: 10px; height: 10px; background-color: transparent; margin: 0 10px;"></div> 
         </nav>
         <br>
         <section>
-          <h2 id="yer1" style="color: blue;"><a href="{% url 'rotadetai' serv.id %}"target="_blank">{{deta.GezilecekYer}}</a></h2>
-          <p style="color: blue;">{{deta.description}}</p>
+          <h2 id="yer1" style="color: blue;"><a href="{% url "gezilecekyerdetai" gezileceky.id %}"target="_blank">{{gezileceky.GezilecekYer}}</a></h2>
+          <p style="color: blue;">{{gezileceky.description}}</p>
           <div class="button_container" style="margin-bottom: 20px;">
-            <a href="{{deta.adreslink1}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
+            <a href="{{gezileceky.adreslink1}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
+            <a href="{% url "gezilecekyerdetai" gezileceky.id %}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Gezilecek rota detai </a>
           </div>
         </section>
-        <!-- <section>
-          <h2 id="yer2" style="color: green;"><a href="{% url 'rotadetai' serv.id %}"target="_blank">{{deta.GezilecekYer2}}</a></h2>
-          <p style="color: green;">{{deta.description_2}}</p>
-          <div class="button_container" style="margin-bottom: 20px;">
-            <a href="{{deta.adreslink2}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
-            <a href="{% url 'rotadetai' serv.id %}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>daha fazla bilgi </a>
-          </div>
-        </section>
-        <section>
-          <h2 id="yer3" style="color: red;"><a href="{% url 'rotadetai' serv.id %}"target="_blank">{{deta.GezilecekYer3}}</a></h2>
-          <p style="color: red;">{{deta.description_3}}</p>
-          <div class="button_container" style="margin-bottom: 20px;">
-            <a href="{{deta.adreslink3}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
-            <a href="{% url 'rotadetai' serv.id %}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>daha fazla bilgi </a>
-          </div>
-        </section>
-        <section>
-          <h2 id="yer4" style="color: orange;"><a href="{% url 'rotadetai' serv.id %}"target="_blank">{{deta.GezilecekYer4}}</a></a></h2>
-          <p style="color: orange;">{{deta.description_4}}</p>
-          <div class="button_container" style="margin-bottom: 20px;">
-            <a href="{{deta.adreslink4}}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>Konum</a>
-            <a href="{% url 'rotadetai' serv.id %}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>daha fazla bilgi </a>
-          </div>
-        </section> -->
-        <div class="button_container" style="margin-bottom: 20px;">
-          <a href="{% url 'rotadetai' serv.id %}" target="_blank" class="btn btn-dark"><i class="fas fa-hotel"></i>daha fazla bilgi </a>
-        </div>
       </div>
       <div class="col-md-6 padding_right_0">
       </div>
       {% endfor %}
       {% endfor %}
-
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
 <div class="container">
   {% for deta in detai %}
   <div class="col-md-12">
-    <!--  -->
     <h1 class="about_taital" style="text-align: center; color: black;">{{deta.main_title}}</h1>
   </div>
-
   <div class="row justify-content-center">
   {% for servici in servicics %}
-
     <div class="col-lg-4 mb-4" data-city="istanbul">
       <div class="card border-0 text-center">
         <img src="{{servici.image1.url}}" class="card-img-top" alt="Resim">
@@ -172,14 +97,11 @@
 </div>
 <div class="container">
   {% for deta in detai %}
-
   <div class="col-md-12">
-    <!--  -->
     <h1 class="about_taital" style="text-align: center; color: black;">{{deta.main_title2}}</h1>
   </div>
   <div class="row justify-content-center">
   {% for servici in servicics %}
-
     <div class="col-lg-4 mb-4" data-city="istanbul">
       <div class="card border-0 text-center">
         <img src="{{servici.image2.url}}" class="card-img-top" alt="Resim">
@@ -196,25 +118,24 @@
   </div>
   {% endfor %}
 </div>
-<!-- <div class="col-md-7">
-  <h2>Yorumlar</h2>
-  <form id="commentForm">
-    <textarea class="comment-box" id="comment" rows="4" placeholder="Yorumunuzu buraya yazın..."></textarea>
-    <button type="button" class="comment-button" onclick="addComment()">Yorumu Gönder</button>
-  </form>
-  <div class="comments-list" id="commentsList"></div>
-</div>
-<script>
-  function addComment() {
-    const commentText = document.getElementById('comment').value;
-    if (commentText.trim() !== '') {
-      const commentElement = document.createElement('div');
-      commentElement.className = 'comment';
-      commentElement.textContent = commentText;
-      
-      document.getElementById('commentsList').appendChild(commentElement);
-      document.getElementById('comment').value = '';
-    }
-  }
-</script> -->
+<br/><br/>
+
+<h1>Yorumlar...</h1>
+<br/>
+{% if not service_detail.comments.all %}
+    henuz yorum yok... <a href="#">
+      Yorum ekle
+    </a>
+{% else %}
+  {% for comi in service_detail.comments.all %}
+  <strong>
+    {{ comi.name }} - 
+    {{ comi.date_added}}
+  </strong>
+  <br/>
+  {{comi.body}}
+  <br/><br/>
+  {% endfor %}
+{% endif %}
+<br><br><br><br><br>
 {% endblock continer %}
