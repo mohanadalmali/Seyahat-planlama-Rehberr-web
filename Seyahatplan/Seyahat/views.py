@@ -70,4 +70,4 @@ class addcommentview(CreateView):
         success_url = reverse_lazy('servicdatai')
         
         def get_success_url(self):
-          return reverse_lazy('service_detail', kwargs={'id': self.object.service_detail.id})
+          return reverse_lazy('servicdatai', kwargs={'id': self.object.service_detail.id})
