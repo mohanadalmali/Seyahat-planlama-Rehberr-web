@@ -2,6 +2,54 @@
 {% load static %}
 {% block title %}"Service Detail"{% endblock title %}
 {% block continer %}
+
+
+<style>
+  #rota {
+    margin: 0 auto;
+    max-width: 600px; /* Opsiyonel: İstenilen genişliği belirleyebilirsiniz */
+  }
+  .comment-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .comment {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .comment strong {
+    font-size: 1.2em;
+    color: #333;
+  }
+  .comment .date {
+    color: #777;
+    font-size: 0.9em;
+  }
+  .comment p {
+    margin: 10px 0 0;
+    line-height: 1.6;
+  }
+  .no-comments {
+    color: #777;
+    font-size: 1em;
+    margin-top: 20px;
+  }
+  .no-comments a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  .no-comments a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+
 <style>
   #rota {
     margin: 0 auto;
@@ -65,13 +113,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
 <div class="container">
   {% for deta in detai %}
   <div class="col-md-12">
@@ -120,14 +161,40 @@
 </div>
 <br/><br/>
 
+<div class="container comment-section">
+  <h1 style="text-align: center; color: black;">Yorumlar</h1>
+  <div class="row justify-content-center">
+    {% for serv in detai %}
+    <div class="col-md-8">
+      {% if not comments %}
+        <div class="no-comments">
+          <h4>Henüz yorum yok... <a href="{% url "ADDcomment" serv.id %}">Yorum ekle</a></h4>
+        </div>
+      {% else %}      
+        {% for comi in comments %}
+          <div class="comment">
+            <strong>{{ comi.name }}</strong> - 
+            <span class="date">{{ comi.date_added|date:"d M Y, H:i" }}</span>
+            <p>{{ comi.body }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <br/>
+      </h2><a href="{% url "ADDcomment" serv.id %}">Yorum ekle</a></h2>
+      <br/><br/>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<br/><br/><br/><br/>
+<!-- <br/><br/>
 <h1>Yorumlar...</h1>
 <br/>
-{% if not service_detail.comments.all %}
+{% if not comments %}
     henuz yorum yok... <a href="#">
-      Yorum ekle
-    </a>
+      Yorum ekle</a>
 {% else %}
-  {% for comi in service_detail.comments.all %}
+  {% for comi in comments %}
   <strong>
     {{ comi.name }} - 
     {{ comi.date_added}}
@@ -137,5 +204,5 @@
   <br/><br/>
   {% endfor %}
 {% endif %}
-<br><br><br><br><br>
+<br><br><br> -->
 {% endblock continer %}
